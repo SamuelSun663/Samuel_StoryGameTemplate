@@ -27,7 +27,7 @@ const scenes = {
         action: function () {
           updateHealth(-10);
         },
-        nextScene: "entrance"
+        nextScene: "location1"
       },
       {
         text: "Ask about the neighbor",
@@ -43,13 +43,13 @@ const scenes = {
     ]
   },
 
-  entrance: {
-    title: "Location: Entrance",
-    character: "Interviewee:Neighbor",
-    text: "well what I remember...",
+  location1: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
     choices: [
       {
-        text: "Ask about the dog",
+        text: "Where were you when the compass was stolen?",
         nextScene: "backyard"
       },
          {
