@@ -10,12 +10,12 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
+let currentScene = "map";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  backyard: {
+/*   backyard: {
     title: "Location: Backyard",
     character: "Interviewee:Grandma",
     text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
@@ -41,25 +41,186 @@ const scenes = {
           nextScene: "hallway"
       }
     ]
+  }, */
+
+
+  map: {
+    title: "Location: Oakland Museum",
+    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+    choices: [
+      {
+        text: "director's office",
+        nextScene: "location1"
+      },
+      {
+        text: "security office",
+        nextScene: "location2"
+      },
+      {
+        text: "Art gallery",
+        nextScene: "location3"
+      },
+      {
+        text: "Staff Break Room",
+        nextScene: "location4"
+      },
+      {
+          text: "Ancient History Gallery",
+          nextScene: "location5"
+      },
+      {
+        text: "Evidence Room",
+        nextScene: "finalScene"
+        }
+    ]
   },
 
   location1: {
     title: "Location: Director's office",
     character: "Interviewee: Mr.Vale - Assistant Director",
-    text: "Hey, hows it going? Do you need some help?",
+    text: " ",
     choices: [
       {
-        text: "Where were you when the compass was stolen?",
-        nextScene: "backyard"
+        text: "Talk to Mr.Vale",
+        nextScene: "location1a"
       },
          {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "View the office",
+        nextScene: "location1b"
+      },
+      {
+        text: "Leave the office",
+        nextScene: "map"
       }
     ]
   },
 
-  hallway: {
+    location1a: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
+    choices: [
+      {
+        text: "Where ",
+        action: function () {
+          messageDisplay.textContent = "Mr.Vale: I was in the office when I heard a loud noise, I went to check it out and saw Darcie running around with the dog, she was laughing and having fun.";
+        }
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office --> Security Office",
+        nextScene: "location2"
+      },
+      {
+        text: "go back",
+        nextScene: "location1"
+      }
+    ]
+  },
+
+    location1b: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
+    choices: [
+      {
+        text: "Talk to Mr.Vale",
+        nextScene: "backyard"
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office --> Security Office",
+        nextScene: "location2"
+      }
+    ]
+  },
+
+    location2: {
+    title: "Location: Security Office",
+    character: "Interviewee: Ms. Brooks - Security Guard",
+    text: "Hey, do you need some help? I can show you around the office if you want.",
+    choices: [
+      {
+        text: "Talk to Ms. Brooks",
+        nextScene: "location2.1"
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office ",
+        nextScene: "map"
+      }
+    ]
+  },
+
+    location3: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
+    choices: [
+      {
+        text: "Talk to Mr.Vale",
+        nextScene: "backyard"
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office",
+        nextScene: "map"
+      }
+    ]
+  },
+    location4: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
+    choices: [
+      {
+        text: "Talk to Mr.Vale",
+        nextScene: "backyard"
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office",
+        nextScene: "map"
+      }
+    ]
+  },
+
+    location5: {
+    title: "Location: Director's office",
+    character: "Interviewee: Mr.Vale - Assistant Director",
+    text: "Hey, hows it going? Do you need some help?",
+    choices: [
+      {
+        text: "Talk to Mr.Vale",
+        nextScene: "backyard"
+      },
+         {
+        text: "View the office",
+        nextScene: "hallway"
+      },
+      {
+        text: "Leave the office --> Security Office",
+        nextScene: "map"
+      }
+    ]
+  },
+
+/*   hallway: {
     title: "The Hallway",
     text: "The hallway is dark and silent.",
     choices: [
@@ -68,9 +229,9 @@ const scenes = {
         nextScene: "lockedDoor"
       }
     ]
-  },
+  }, */
 
-   lockedDoor: {
+   /* lockedDoor: {
     title: "The Locked Door",
     text: "The door handle doesn't move.",
     choices: [
@@ -80,10 +241,10 @@ const scenes = {
       },
       {
         text: "Go back",
-        nextScene: "backyard"
+        nextScene: "map"
       }
     ]
-  },
+  }, */
 
    solution: {
     title: "The solution",
