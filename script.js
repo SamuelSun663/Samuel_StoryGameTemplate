@@ -46,7 +46,7 @@ const scenes = {
 
   map: {
     title: "Location: Oakland Museum",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+    text: "Text: Greetings Detective! You have been called to the Oakland Museum to investigate a mysterious incident. Your task is to interview the staff and gather information about what happened. Explore the museum and talk to the staff to uncover the truth about who stole the compass and why. Good luck!",
     choices: [
       {
         text: "director's office",
@@ -70,7 +70,7 @@ const scenes = {
       },
       {
         text: "Evidence Room",
-        nextScene: "finalScene"
+        nextScene: "solution"
         }
     ]
   },
@@ -82,143 +82,169 @@ const scenes = {
     choices: [
       {
         text: "Talk to Mr.Vale",
-        nextScene: "location1a"
-      },
-         {
-        text: "View the office",
-        nextScene: "location1b"
-      },
-      {
-        text: "Leave the office",
-        nextScene: "map"
-      }
-    ]
-  },
-
-    location1a: {
-    title: "Location: Director's office",
-    character: "Interviewee: Mr.Vale - Assistant Director",
-    text: "Hey, hows it going? Do you need some help?",
-    choices: [
-      {
-        text: "Where ",
         action: function () {
-          messageDisplay.textContent = "Mr.Vale: I was in the office when I heard a loud noise, I went to check it out and saw Darcie running around with the dog, she was laughing and having fun.";
+          messageDisplay.textContent = "Mr.Vale: I was in the office when I heard a loud noise.";
         }
       },
          {
         text: "View the office",
-        nextScene: "hallway"
+        action: function () {
+          messageDisplay.textContent = "You find nothing";
+        }
       },
       {
-        text: "Leave the office --> Security Office",
-        nextScene: "location2"
-      },
-      {
-        text: "go back",
-        nextScene: "location1"
+        text: "Leave the office",
+        action: function () {
+         messageDisplay.textContent = " ";
+        },
+        nextScene: "map"
       }
     ]
   },
-
-    location1b: {
-    title: "Location: Director's office",
-    character: "Interviewee: Mr.Vale - Assistant Director",
-    text: "Hey, hows it going? Do you need some help?",
-    choices: [
-      {
-        text: "Talk to Mr.Vale",
-        nextScene: "backyard"
-      },
-         {
-        text: "View the office",
-        nextScene: "hallway"
-      },
-      {
-        text: "Leave the office --> Security Office",
-        nextScene: "location2"
-      }
-    ]
-  },
-
-    location2: {
+  location2: {
     title: "Location: Security Office",
     character: "Interviewee: Ms. Brooks - Security Guard",
     text: "Hey, do you need some help? I can show you around the office if you want.",
     choices: [
       {
         text: "Talk to Ms. Brooks",
-        nextScene: "location2.1"
+        action: function () {
+          messageDisplay.textContent = "Ms. Brooks: I was on duty when the incident happened, I didn't see anything suspicious.";
+        }
       },
          {
-        text: "View the office",
-        nextScene: "hallway"
+        text: "View the Security cameras",
+        action: function () {
+          messageDisplay.textContent = "You find a suspicious figure on the camera feed wearing a gold watch and a red scarf. The figure is seen entering the museum through the back entrance.";
+          pickUpItem("evidence: gold watch and red scarf");
+        }
       },
       {
         text: "Leave the office ",
+        action: function () {
+         messageDisplay.textContent = " ";
+        },
         nextScene: "map"
       }
     ]
   },
 
     location3: {
-    title: "Location: Director's office",
-    character: "Interviewee: Mr.Vale - Assistant Director",
+    title: "Location: Art Gallery",
+    character: "Interviewee: Ms. Elena Cruz - Artist & Observer",
     text: "Hey, hows it going? Do you need some help?",
     choices: [
       {
-        text: "Talk to Mr.Vale",
-        nextScene: "backyard"
+        text: "Talk to Ms. Elena Cruz",
+        action: function () {
+          messageDisplay.textContent = "Ms. Elena Cruz: I was observing the art pieces when I heard a loud noise. I saw a black figure running away from the scene. I couldn't see their face, but they were holding a hammer heading to the Security Office.";
+          pickUpItem("evidence: seen with a hammer");
+        }
       },
          {
-        text: "View the office",
-        nextScene: "hallway"
+        text: "View the Art Gallery",
+        action: function () {
+          messageDisplay.textContent = "You find nothing";
+        }
       },
       {
         text: "Leave the office",
+        action: function () {
+         messageDisplay.textContent = " ";
+        },
         nextScene: "map"
       }
     ]
   },
     location4: {
-    title: "Location: Director's office",
-    character: "Interviewee: Mr.Vale - Assistant Director",
+    title: "Location: Staff Break Room",
+    character: "Interviewee: Priya Shah - Museum Staff",
     text: "Hey, hows it going? Do you need some help?",
     choices: [
       {
-        text: "Talk to Mr.Vale",
-        nextScene: "backyard"
+        text: "Talk to Priya Shah",
+        action: function () {
+        messageDisplay.textContent = " I was getting some snacks when I heard a loud noise.";
+        }
       },
          {
-        text: "View the office",
-        nextScene: "hallway"
+        text: "View the Staff Break Room",
+        action: function () {
+          messageDisplay.textContent = "You find a rat that attacks you";
+          updateHealth(-30);
+        }
       },
       {
         text: "Leave the office",
+        action: function () {
+         messageDisplay.textContent = " ";
+        },
         nextScene: "map"
       }
     ]
   },
 
     location5: {
-    title: "Location: Director's office",
-    character: "Interviewee: Mr.Vale - Assistant Director",
+    title: "Location: Anchient History Gallery",
+    character: "Interviewee: Marcus Green - History Expert",
     text: "Hey, hows it going? Do you need some help?",
     choices: [
       {
-        text: "Talk to Mr.Vale",
-        nextScene: "backyard"
+        text: "Talk to Marcus Green",
+        action: function () {
+          messageDisplay.textContent = "Marcus Green: I was examining the ancient artifacts when I heard a loud noise next to me and saw broken glass everywhere. glass shards are surrounding me so I am trapped and I can't move.";
+          updateHealth(-20);
+        }
       },
          {
-        text: "View the office",
-        nextScene: "hallway"
+        text: "View the gallery",
+        action: function () {
+          messageDisplay.textContent = "You find a piece of hair on the floor that matches the black hoodie.";
+          pickUpItem("evidence: a piece of hair.");
+        }
       },
       {
-        text: "Leave the office --> Security Office",
+        text: "Leave the Ancient History Gallery",
+        action: function () {
+         messageDisplay.textContent = " ";
+        },  
         nextScene: "map"
       }
     ]
   },
+  solution: {
+    title: "The solution",
+    text: " if you have found all the evidence, you can solve the mystery and find out who stole the compass. If you have not found all the evidence, you will not be able to solve the mystery.",
+    choices: [
+      {
+        text: "Solve the mystery",
+        action: function () {
+          if (inventory.includes("evidence: gold watch and red scarf") && inventory.includes("evidence: seen with a hammer") && inventory.includes("evidence: a piece of hair.")) {
+            updateScene("win");
+          } else {
+            messageDisplay.textContent = "You don't have enough evidence to solve the mystery.";
+          }
+        }
+      },
+      {
+        text: "Go back to the map",
+        nextScene: "map"
+      }
+    ]
+  },
+  win: {
+    title: "Congratulations!",
+    text: "You have solved the mystery and found out who stole the compass. The thief was caught and justice was served.",
+    choices: [
+      {
+        text: "Play again",
+        action: function () {
+          location.reload();
+        }
+      }
+    ]
+    
+  }
 
 /*   hallway: {
     title: "The Hallway",
@@ -245,12 +271,6 @@ const scenes = {
       }
     ]
   }, */
-
-   solution: {
-    title: "The solution",
-    text: "You solved the mystery!",
-    
-  }
 };
 
 // --------------------------------------------------
@@ -294,10 +314,16 @@ function updateScene(sceneName) {
   // Loop through each choice in the scene, connecting an action and nextScene if included
   scene.choices.forEach(function (choice) {
     const button = document.createElement("button");
+    let choiceUsed = false;
 
     button.textContent = choice.text;
 
     button.addEventListener("click", function () {
+      if (choiceUsed) {
+        return;
+      }
+      choiceUsed = true;
+
       if (choice.action) {
         choice.action();
       }
