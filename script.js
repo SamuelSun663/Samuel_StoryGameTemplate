@@ -90,6 +90,7 @@ const scenes = {
         text: "View the office",
         action: function () {
           messageDisplay.textContent = "You find nothing";
+          updateHealth(-50);
         }
       },
       {
@@ -109,7 +110,8 @@ const scenes = {
       {
         text: "Talk to Ms. Brooks",
         action: function () {
-          messageDisplay.textContent = "Ms. Brooks: I was on duty when the incident happened, I didn't see anything suspicious.";
+          messageDisplay.textContent = "Ms. Brooks: Ah! so sorry, I thought you were the thief.";
+          updateHealth(-50);
         }
       },
          {
@@ -171,7 +173,7 @@ const scenes = {
         text: "View the Staff Break Room",
         action: function () {
           messageDisplay.textContent = "You find a rat that attacks you";
-          updateHealth(-30);
+          updateHealth(-50);
         }
       },
       {
@@ -193,7 +195,7 @@ const scenes = {
         text: "Talk to Marcus Green",
         action: function () {
           messageDisplay.textContent = "Marcus Green: I was examining the ancient artifacts when I heard a loud noise next to me and saw broken glass everywhere. glass shards are surrounding me so I am trapped and I can't move.";
-          updateHealth(-20);
+          updateHealth(-50);
         }
       },
          {
