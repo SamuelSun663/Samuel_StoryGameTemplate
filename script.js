@@ -244,7 +244,19 @@ const scenes = {
       }
     ]
     
-  }
+  },
+  gameOver: {
+    title: "Game Over",
+    text: "You have lost all your health and failed to solve the mystery. Better luck next time!",
+    choices: [
+      {
+        text: "Play again",
+        action: function () {
+          location.reload();
+        }
+      }
+    ]
+  },
 
 /*   hallway: {
     title: "The Hallway",
@@ -361,6 +373,9 @@ const healthDisplay = document.getElementById("health-display");
 function updateHealth(amount) {
   health += amount;
   healthDisplay.textContent = health;
+  if (health <= 0) {
+    updateScene("gameOver");
+  }
 }
 
 // This refreshes the health display
