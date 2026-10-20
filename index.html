@@ -4,32 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <!-- the link tag, links the style sheet to the file 
+        linking the style.css to your index.html -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        p {
+            background-color: chocolate;
+            font-family: Cambria;
+            text-decoration: underline;
+
+
+        }
+        li {
+            color: darkred;
+            font-weight: bold;
+
+        }
+    
+
+
+
+    </style>
 </head>
 <body>
      <header>
-      <nav>
+      <nav style="border: 2px solid black; border-radius: 10px;">
             <ul> 
                 <li><a href="game.html">Play the game</a></li>
             </ul>
             <ul> 
-                <li><a href="about.html">About the creator</a></li>
+                <li><a href="about.html" style="text-spacing-trim: normal;">About the creator</a></li>
             </ul>
         </nav>
     </header>
+<main>
 
+</main>
     <form action="game.html">
-<h1> Welcome to my mystery game</h1>
-    <p>Intro: You are a detective investigating the oakland museum. </p>
+<h1 style="background:green;color:palevioletred;"> Welcome to my mystery game</h1>
+    <p style="color:steelblue;" font-family="Cambria;" word>Intro: You are a detective investigating the oakland museum. </p>
     <p> Objective: You must find who stole the moonstone compass.</p>
     <img src="images/detective.png" alt="detective" width="200" height="200">
     <p></p>
     <label for="playerName">Enter your name:</label>
     <input type="text" name="playerName" placeholder="Enter your name" required>
     <p></p>
+
     <label for="difficulty">Choose difficulty:</label>
-    <input type="radio" name="difficulty" value="easy" required> Easy
-    <input type="radio" name="difficulty" value="medium" required> Medium
-    <input type="radio" name="difficulty" value="hard" required> Hard 
+    
+    <label for="easy" style="background-color: green; color: black;">Easy</label>
+    <input type="radio" id="easy" name="difficulty" value="easy" style="color: green;" required>
+
+    <label for="medium" style="background-color: yellow; color: black;">Medium</label>
+    <input type="radio" id="medium" name="difficulty" value="medium" style="color: yellow;" required>
+
+    <label for="hard" style="background-color: red; color: black;">Hard</label>
+    <input type="radio" id="hard" name="difficulty" value="hard" style="color: red;" required>
+
     <p></p>
     <label for="feel">How are you feeling today?</label>
     <input type="text" name="feel" value="" placeholder="I am feeling great"> 
