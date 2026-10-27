@@ -53,8 +53,8 @@ id {
     font-style: oblique;
     text-align: center;
 }
-.inventory {
-    background-color: #9389e6;
+#inventory-display {
+    background-color: #ebf592;
     border: 1px solid #fc0000;
     border-radius: 5px;
     padding: 10px;
