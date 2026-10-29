@@ -41,6 +41,8 @@ id {
     font-family: sans-serif;
     font-weight: 100;
     font-style: italic;
+    padding: 15px;
+    border: 2px solid black;
 }
 .card {
 
