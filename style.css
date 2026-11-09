@@ -1,5 +1,5 @@
 body {
-    background-color:aquamarine
+    background-color:rgb(0, 0, 0)
 
 }
 nav {
@@ -16,17 +16,17 @@ p{
 }
 h1{
     font-size: 24px;
-    color: #333;
+    color: #f5e9e9;
 }
 label {
     font-weight: bold;
     font-size: 16px;
-    color: #333;
+    color: #fbf0f0;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 id {
     font-size: 18px;
-    color:darkred;
+    color:rgb(21, 19, 19);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     font-style: italic;
@@ -36,7 +36,7 @@ id {
 
 .heading {
     font-size: 25px;
-    color: #555;
+    color: #ff0000;
     margin-bottom: 10px;
     font-family: sans-serif;
     font-weight: 100;
@@ -46,8 +46,8 @@ id {
 }
 .card {
 
-    background-color: #9389e6;
-    border: 1px solid #fc0000;
+    background-color: #15ebcb;
+    border: 1px solid #7f7070;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 20px;
@@ -56,8 +56,8 @@ id {
     text-align: center;
 }
 #inventory-display {
-    background-color: #ebf592;
-    border: 1px solid #fc0000;
+    background-color: #8e2c2c;
+    border: 2px solid #000000;
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
