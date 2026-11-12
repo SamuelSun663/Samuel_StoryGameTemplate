@@ -12,7 +12,7 @@ nav {
 p{
     font-size: 18px;
     line-height: 1.6;
-    color:maroon
+    color: white
 }
 h1{
     font-size: 24px;
@@ -42,7 +42,7 @@ id {
     font-weight: 100;
     font-style: italic;
     padding: 15px;
-    border: 2px solid black;
+    border: 2px solid white;
 }
 .card {
 
